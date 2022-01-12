@@ -2,7 +2,17 @@
   <div class="container-fluid">
     <div class="container">
       <img src="../assets/oscar-bbq-logo.jpeg" alt="oscar-bbq-logo" />
+
+      <!-- Only visible when phone -->
+      <div class="burger-menu-container">
+        <a href="#" type="button" @click="toggleBurgerMenu">
+          <i class="fas fa-bars f-icon"></i>
+        </a>
+      </div>
+
       <div class="header-links">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
         <a href="" class="current-link">Inicio</a>
         <a href="">Asadores</a>
         <a href="">Galer&iacute;a</a>
@@ -17,6 +27,9 @@ export default {
   name: "MainHeader",
   props: {
     title: String,
+  },
+  methods: {
+    toggleBurgerMenu: () => {},
   },
 };
 </script>
@@ -46,21 +59,60 @@ export default {
   border-bottom: 0.15rem solid red;
 }
 
-.icon{
+.icon {
   font-size: 5em;
+}
+
+.f-icon {
+  color: gray;
+}
+
+.burger-menu-container {
+  display: none;
 }
 
 /* Responsive */
 @media only screen and (max-width: 768px) {
-  .header-links a{
-    background-color: yellow;
-    display: block;
-    visibility: hidden;
+  .header-links {
+    /* display: none; */
+    height: 100%;
+    width: 70%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    transition: 0.5s;
+    padding-top: 60px;
   }
 
-  .header-links a:hover, .current-link{
-      border-bottom: none;
+  .header-links a {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  .header-links a:hover,
+  .current-link {
+    border-bottom: none;
+  }
+
+  .burger-menu-container {
+    display: block;
+    font-size: 3em;
+    margin-top: 2rem;
+  }
+
+  .container-fluid {
+    padding-bottom: 1rem;
+    margin-bottom: 0rem;
+  }
+
+  .header-links .closebtn {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    font-size: 2.5em;
+    margin-left: 1rem;
   }
 }
-
 </style>
