@@ -10,8 +10,8 @@
         </a>
       </div>
 
-      <div class="header-links">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="header-links" v-bind:class="{ 'show-burger-menu': toggleMenu, }">
+        <a href="#" class="closebtn" @click="toggleBurgerMenu">&times;</a>
 
         <a href="" class="current-link">Inicio</a>
         <a href="">Asadores</a>
@@ -29,7 +29,14 @@ export default {
     title: String,
   },
   methods: {
-    toggleBurgerMenu: () => {},
+    toggleBurgerMenu: function () {
+      this.toggleMenu = !this.toggleMenu;
+    },
+  },
+  data() {
+    return {
+      toggleMenu: false,
+    };
   },
 };
 </script>
@@ -67,7 +74,7 @@ export default {
   color: gray;
 }
 
-.burger-menu-container {
+.burger-menu-container, .closebtn {
   display: none;
 }
 
@@ -76,7 +83,7 @@ export default {
   .header-links {
     /* display: none; */
     height: 100%;
-    width: 70%;
+    width: 0%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -86,9 +93,18 @@ export default {
     padding-top: 60px;
   }
 
+  .show-burger-menu{
+    width: 70% !important;
+  }
+
+  .closebtn{
+    display: block
+  }
+
   .header-links a {
     display: block;
     margin-top: 1.5rem;
+    font-size: 2em;
   }
 
   .header-links a:hover,
