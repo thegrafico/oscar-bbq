@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- Main Header with burger menu -->
-    <MainHeader/>
+    <Header/>
 
     <!-- Call us -->
     <ContentBanner/>
@@ -13,23 +13,40 @@
     <!-- Asadores -->
     <Asadores/>
 
+    <!-- SUB MENU -->
+    <SubMenu/>
+
+    <!-- FORM CONTACT -->
+    <ContactUs/>
+
+    <!-- FOOTER -->
+    <Footer/>
+
+
   </div>
 </template>
 
 <script>
-import MainHeader from './components/MainHeader.vue'
+import Header from './components/Header.vue'
 import ContentBanner from './components/ContactBanner.vue'
 import MainContent from './components/MainContent.vue'
 import Asadores from './components/Asadores.vue'
+import SubMenu from './components/SubMenu.vue'
+import ContactUs from './components/ContactUs.vue'
+import Footer from './components/Footer.vue'
+
 
 
 export default {
   name: 'App',
   components: {
-    MainHeader,
+    Header,
     ContentBanner,
     MainContent,
-    Asadores
+    Asadores,
+    SubMenu,
+    ContactUs,
+    Footer
   }
 }
 </script>
@@ -73,6 +90,10 @@ export default {
   font-weight: bold;
   width: 30%;
   
+}
+
+#app{
+  overflow-x: hidden;
 }
 
 </style>

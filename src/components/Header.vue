@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "MainHeader",
+  name: "Header",
   props: {
     title: String,
   },
@@ -46,7 +46,6 @@ export default {
 .container-fluid {
   color: white;
   background-color: #1e1e1e;
-  margin-bottom: 1rem;
   padding-bottom: 0.8rem;
 }
 
