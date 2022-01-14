@@ -10,13 +10,20 @@
         </a>
       </div>
 
-      <div class="header-links" v-bind:class="{ 'show-burger-menu': toggleMenu, }">
+      <div
+        class="header-links"
+        v-bind:class="{ 'show-burger-menu': toggleMenu }"
+      >
         <a href="#" class="closebtn" @click="toggleBurgerMenu">&times;</a>
 
-        <a href="" class="current-link">Inicio</a>
-        <a href="">Asadores</a>
-        <a href="">Galer&iacute;a</a>
-        <a href="">Contacto</a>
+        <a
+          v-for="link in links"
+          :key="link.route"
+          v-bind:href="link.route"
+          v-bind:class="{ active: (link.route === urlPath) }"
+        >
+          {{ link.name }}
+        </a>
       </div>
     </div>
   </div>
@@ -27,15 +34,24 @@ export default {
   name: "Header",
   props: {
     title: String,
+    activeRoute: String,
   },
   methods: {
     toggleBurgerMenu: function () {
       this.toggleMenu = !this.toggleMenu;
     },
   },
+
   data() {
     return {
       toggleMenu: false,
+      urlPath: window.location.pathname,
+      links: [
+        { route: "/", name: "Inicio" },
+        { route: "/asadores", name: "Asadores" },
+        { route: "/galeria", name: "Galería" },
+        { route: "/contacto", name: "contacto" },
+      ],
     };
   },
 };
@@ -61,7 +77,7 @@ export default {
   border-bottom: 0.15rem solid red;
 }
 
-.current-link {
+.active {
   border-bottom: 0.15rem solid red;
 }
 
@@ -73,7 +89,8 @@ export default {
   color: gray;
 }
 
-.burger-menu-container, .closebtn {
+.burger-menu-container,
+.closebtn {
   display: none;
 }
 
@@ -92,12 +109,12 @@ export default {
     padding-top: 60px;
   }
 
-  .show-burger-menu{
+  .show-burger-menu {
     width: 70% !important;
   }
 
-  .closebtn{
-    display: block
+  .closebtn {
+    display: block;
   }
 
   .header-links a {
@@ -107,7 +124,7 @@ export default {
   }
 
   .header-links a:hover,
-  .current-link {
+  .active {
     border-bottom: none;
   }
 

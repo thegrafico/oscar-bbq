@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid mt-4">
     <div class="row mb-5 d-flex justify-content-center">
       <div class="col-10">
 
@@ -55,7 +55,10 @@
     </div>
 
     <div class="row mb-5">
-      <img src="../assets/Asadores-De-Barril-Oscar-BBQ-Asadores.jpeg" alt="Tipos de asadores">
+
+      <div class="container">
+        <img src="../assets/Asadores-De-Barril-Oscar-BBQ-Asadores.jpeg" alt="Tipos de asadores">
+      </div>
     </div>
   </div>
 </template>

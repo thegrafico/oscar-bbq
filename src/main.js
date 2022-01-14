@@ -1,6 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+
+import Home from './pages/Home.vue'
+import Asadores from './pages/Asadores.vue'
+import Contacto from './pages/Contacto.vue'
+import NotFound from './pages/404.vue'
+
+import {
+  BootstrapVue,
+  IconsPlugin
+} from 'bootstrap-vue'
 
 // ========== ADDING Bootstrap ================
 
@@ -15,6 +23,26 @@ Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
 
+const routes = {
+  '/': Home,
+  '/asadores': Asadores,
+  '/contacto': Contacto,
+}
+
 new Vue({
-  render: h => h(App),
+  el: '#app',
+  data: {
+    currentRoute: window.location.pathname
+  },
+  computed: {
+    ViewComponent () {
+      return routes[this.currentRoute] || NotFound
+    }
+  },
+  render (h) { return h(this.ViewComponent) }
 }).$mount('#app')
+
+
+// new Vue({
+//   render: h => h(App),
+// }).$mount('#app')

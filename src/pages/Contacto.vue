@@ -5,18 +5,9 @@
     <Header/>
 
     <!-- Call us -->
-    <ContentBanner/>
+    <ContentBanner v-bind="bannerSetup"/>
 
-    <!-- Main information (Body information) -->
-    <MainContent/>
-
-    <!-- Asadores -->
-    <Asadores/>
-
-    <!-- SUB MENU -->
-    <SubMenu/>
-
-    <!-- FORM CONTACT -->
+     <!-- FORM CONTACT -->
     <ContactUs/>
 
     <!-- FOOTER -->
@@ -27,26 +18,31 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import ContentBanner from './components/ContactBanner.vue'
-import MainContent from './components/MainContent.vue'
-import Asadores from './components/Asadores.vue'
-import SubMenu from './components/SubMenu.vue'
-import ContactUs from './components/ContactUs.vue'
-import Footer from './components/Footer.vue'
-
-
+import Header from '../components/Header.vue'
+import ContentBanner from '../components/ContactBanner.vue'
+import ContactUs from '../components/ContactUs.vue'
+import Footer from '../components/Footer.vue'
 
 export default {
-  name: 'App',
+  name: 'Contacto',
   components: {
     Header,
     ContentBanner,
-    MainContent,
-    Asadores,
-    SubMenu,
     ContactUs,
     Footer
+  },
+
+  data () {
+    return {
+      bannerSetup: {
+        bgImage: 'maiz.jpg',
+        titleStart: "¿Quieres más información acerca de nuestros",
+        titleMiddle: "asadores",
+        titleEnd: "?",
+        bodyMsg: "¡ Déjanos tu información !",
+        showBtn: false,
+      }
+    }
   }
 }
 </script>
