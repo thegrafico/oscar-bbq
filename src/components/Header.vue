@@ -16,20 +16,20 @@
       >
         <a href="#" class="closebtn" @click="toggleBurgerMenu">&times;</a>
 
-        <a
-          v-for="link in links"
-          :key="link.route"
-          v-bind:href="link.route"
-          v-bind:class="{ active: (link.route === urlPath) }"
-        >
-          {{ link.name }}
-        </a>
+        <v-link href="/">Home</v-link>
+        <v-link href="/asadores">Asadores</v-link>
+        <v-link href="/galeria">Galer&iacute;a</v-link>
+        <v-link href="/contacto">Contacto</v-link>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+import VLink from '../components/VLink.vue'
+
 export default {
   name: "Header",
   props: {
@@ -41,11 +41,13 @@ export default {
       this.toggleMenu = !this.toggleMenu;
     },
   },
+  components: {
+    VLink
+  },
 
   data() {
     return {
       toggleMenu: false,
-      urlPath: window.location.pathname,
       links: [
         { route: "/", name: "Inicio" },
         { route: "/asadores", name: "Asadores" },
@@ -74,10 +76,6 @@ export default {
 
 .header-links a:hover {
   font-weight: bold;
-  border-bottom: 0.15rem solid red;
-}
-
-.active {
   border-bottom: 0.15rem solid red;
 }
 

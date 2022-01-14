@@ -7,14 +7,12 @@
     <!-- Call us -->
     <ContentBanner v-bind="bannerSetup"/>
 
-    <!-- Asadores -->
-    <Asadores/>
-
-    <!-- SUB MENU -->
-    <SubMenu/>
+     <!-- FORM CONTACT -->
+    <ContactUs/>
 
     <!-- FOOTER -->
     <Footer/>
+
 
   </div>
 </template>
@@ -22,30 +20,26 @@
 <script>
 import Header from '../components/Header.vue'
 import ContentBanner from '../components/ContactBanner.vue'
-import Asadores from '../components/Asadores.vue'
-import SubMenu from '../components/SubMenu.vue'
+import ContactUs from '../components/ContactUs.vue'
 import Footer from '../components/Footer.vue'
 
-
-
 export default {
-  name: 'AsadoresPage',
+  name: 'Galeria',
   components: {
     Header,
     ContentBanner,
-    Asadores,
-    SubMenu,
+    ContactUs,
     Footer
   },
 
   data () {
     return {
       bannerSetup: {
-        bgImage: 'pinchos.jpg',
-        titleStart: "Adquiere tu",
-        titleMiddle: "Oscar BBQ",
-        titleEnd: "Asador hoy",
-        bodyMsg: "Escoge entre uno de los cinco modelos disponibles.",
+        bgImage: 'maiz.jpg',
+        titleStart: "¿Quieres más información acerca de nuestros",
+        titleMiddle: "asadores",
+        titleEnd: "?",
+        bodyMsg: "¡ Déjanos tu información !",
         showBtn: false,
       }
     }

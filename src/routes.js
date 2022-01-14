@@ -1,4 +1,6 @@
 export default {
-    '/': 'Home',
-    '/about': '404'
-  }
+  '/': 'Home',
+  '/asadores': 'Asadores',
+  '/galeria': 'Galeria',
+  '/contacto': 'Contacto',
+}

@@ -28,9 +28,6 @@ export default {
     bodyMsg: String,
     showBtn: Boolean
   },
-  beforeMount() {
-
-  },
 };
 </script>
 

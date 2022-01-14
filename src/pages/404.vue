@@ -38,7 +38,7 @@ import Footer from '../components/Footer.vue'
 
 
 export default {
-  name: 'App',
+  name: 'NOTFOUND',
   components: {
     Header,
     ContentBanner,
